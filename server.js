@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3000;
 server.use(cors());
 server.use(express.json());
 
+server.get("/", (request, response) => {
+  return response.status(200).json({ message: "OK" });
+});
 server.use("/user", userRoutes);
 server.use("/products", productsRoutes);
 
