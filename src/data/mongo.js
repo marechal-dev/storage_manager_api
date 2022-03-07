@@ -105,31 +105,6 @@ class MongoData {
     return createdProduct;
   }
 
-  /**
-   * @param {string} id 
-   * @param {string} title 
-   * @param {number} price 
-   * @param {number} quantity 
-   */
-  async updateProduct(id, title, price, quantity) {
-    let updatedProduct;
-
-    try {
-      updatedProduct = await productSchema.findOneAndUpdate(
-        id, 
-        {
-          title,
-          price,
-          quantity,
-        }
-      ).exec();
-    } catch (error) {
-      throw new Error(error);
-    }
-
-    return updatedProduct;
-  }
-
   /** 
    * @param {string} id 
    */
@@ -137,7 +112,9 @@ class MongoData {
     let deletedProduct;
 
     try {
-      deletedProduct = await productSchema.findOneAndDelete(id).exec();
+      deletedProduct = await productSchema.findOneAndDelete({
+        _id: id
+      }).exec();
     } catch (error) {
       throw new Error(error);
     }
