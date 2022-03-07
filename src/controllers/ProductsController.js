@@ -26,8 +26,6 @@ class ProductsController {
   async handleDeleteRequest(request, response) {
     const { id } = request.body;
 
-    console.log(request.body);
-
     try {
       await mongoData.deleteProduct(id);
     } catch (error) {
