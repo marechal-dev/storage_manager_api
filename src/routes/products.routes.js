@@ -13,7 +13,7 @@ productsRoutes.post("/", (request, response) => {
   return productsController.handleCreateRequest(request, response);
 });
 
-productsRoutes.delete("/:id", (request, response) => {
+productsRoutes.delete("/", (request, response) => {
   return productsController.handleDeleteRequest(request, response);
 });
 
