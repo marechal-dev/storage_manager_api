@@ -28,11 +28,11 @@ class ProductsController {
 
     try {
       await mongoData.deleteProduct(id);
-
-      return response.status(200).send();
     } catch (error) {
       return response.status(500).send(error);
     }
+
+    return response.status(200).send();
   }
 }
 
